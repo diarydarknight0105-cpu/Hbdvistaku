@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Sayang 🌻</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#7b2cbf);
+    color:white;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.glow{
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(255,214,102,.25);
+    filter:blur(70px);
+    animation:moveGlow 8s infinite alternate;
+}
+
+.glow:nth-child(1){
+    top:-100px;
+    left:-100px;
+}
+
+.glow:nth-child(2){
+    right:-100px;
+    bottom:-100px;
+    animation-delay:2s;
+}
+
+@keyframes moveGlow{
+    from{
+        transform:translate(0,0) scale(.8);
+    }
+    to{
+        transform:translate(100px,80px) scale(1.3);
+    }
+}
+
+/* =========================
+   SLIDES
+========================= */
+
+.slider{
+    position:relative;
+    width:100%;
+    height:100vh;
+    z-index:5;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    padding:25px;
+    text-align:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateX(100%);
+    transition:
+        transform 1s cubic-bezier(.77,0,.18,1),
+        opacity 1s ease,
+        visibility 1s;
+}
+
+.slide.active{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0);
+}
+
+.slide.previous{
+    opacity:0;
+    visibility:hidden;
+    transform:translateX(-100%);
+}
+
+/* =========================
+   SLIDE 1
+========================= */
+
+.flower-big{
+    font-size:120px;
+    animation:bloom 2s infinite alternate;
+    filter:drop-shadow(0 0 25px #ffd166);
+}
+
+@keyframes bloom{
+    from{
+        transform:scale(.9) rotate(-5deg);
+    }
+    to{
+        transform:scale(1.12) rotate(5deg);
+    }
+}
+
+.slide h1{
+    margin-top:20px;
+    font-size:34px;
+    text-shadow:0 4px 15px rgba(80,0,60,.5);
+}
+
+.subtitle{
+    margin-top:10px;
+    font-size:16px;
+    opacity:.85;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    width:100%;
+    max-width:430px;
+
+    padding:35px 25px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+        0 25px 70px rgba(50,0,70,.4),
+        inset 0 0 30px rgba(255,255,255,.1);
+
+    animation:cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* =========================
+   TEXT ANIMATION
+========================= */
+
+.reveal{
+    animation:reveal .9s both;
+}
+
+.delay1{
+    animation-delay:.3s;
+}
+
+.delay2{
+    animation-delay:.7s;
+}
+
+.delay3{
+    animation-delay:1.1s;
+}
+
+@keyframes reveal{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+    margin-top:20px;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.highlight{
+    display:inline-block;
+
+    margin-top:15px;
+    padding:15px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,214,102,.35),
+            rgba(255,105,180,.3)
+        );
+
+    border:1px solid rgba(255,255,255,.3);
+
+    box-shadow:0 0 20px rgba(255,214,102,.15);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+    margin-top:25px;
+
+    padding:14px 30px;
+
+    border:none;
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff3a3,
+            #ffd166,
+            #ff9f1c
+        );
+
+    color:#7a3000;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 25px rgba(255,150,0,.4);
+
+    transition:.3s;
+
+    animation:pulseButton 2s infinite;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+@keyframes pulseButton{
+    0%,100%{
+        box-shadow:0 8px 25px rgba(255,150,0,.4);
+    }
+
+    50%{
+        box-shadow:
+            0 8px 40px rgba(255,214,102,.8);
+    }
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final-flower{
+    font-size:90px;
+    animation:spinFlower 6s linear infinite;
+}
+
+@keyframes spinFlower{
+    0%{
+        transform:rotate(-5deg);
+    }
+
+    50%{
+        transform:rotate(5deg);
+    }
+
+    100%{
+        transform:rotate(-5deg);
+    }
+}
+
+.final-title{
+    font-size:36px;
+    margin-top:15px;
+
+    animation:glowText 2s infinite alternate;
+}
+
+@keyframes glowText{
+    from{
+        text-shadow:0 0 5px white;
+    }
+
+    to{
+        text-shadow:
+            0 0 10px white,
+            0 0 25px #ffd166,
+            0 0 40px #ff69b4;
+    }
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-50px;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    animation:heartUp linear forwards;
+}
+
+@keyframes heartUp{
+    0%{
+        transform:
+            translateY(0)
+            rotate(0)
+            scale(.5);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.2);
+
+        opacity:0;
+    }
+}
+
+/* =========================
+   PETALS
+========================= */
+
+.petal{
+    position:fixed;
+    top:-50px;
+
+    z-index:4;
+
+    pointer-events:none;
+
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    0%{
+        transform:
+            translateY(-50px)
+            rotate(0);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(150px)
+            rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.copyright{
+    position:absolute;
+    bottom:15px;
+    left:0;
+    width:100%;
+
+    font-size:11px;
+    opacity:.65;
+}
+
+/* =========================
+   DOT NAVIGATION
+========================= */
+
+.dots{
+    position:fixed;
+    bottom:35px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:20;
+
+    display:flex;
+    gap:8px;
+}
+
+.dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.4);
+
+    transition:.4s;
+}
+
+.dot.active{
+    width:25px;
+    border-radius:10px;
+
+    background:white;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .flower-big{
+        font-size:95px;
+    }
+
+    .slide h1{
+        font-size:29px;
+    }
+
+    .card{
+        padding:30px 20px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="background">
+    <div class="glow"></div>
+    <div class="glow"></div>
+</div>
+
+
+<!-- SLIDER -->
+
+<div class="slider">
+
+
+    <!-- =====================
+         SLIDE 1
+    ====================== -->
+
+    <section class="slide active">
+
+        <div class="flower-big">
+            🌻
+        </div>
+
+        <h1 class="reveal">
+            Ada sesuatu<br>
+            buat kamu... ❤️
+        </h1>
+
+        <p class="subtitle reveal delay1">
+            Jangan di-skip ya 😌
+        </p>
+
+        <button
+            class="btn reveal delay2"
+            onclick="nextSlide()">
+
+            ✨ Buka ✨
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =====================
+         SLIDE 2
+    ====================== -->
+
+    <section class="slide">
+
+        <div class="card">
+
+            <div class="flower-big" style="font-size:80px;">
+                🌻
+            </div>
+
+            <h1 class="reveal">
+                Happy Birthday
+                <br>
+                Sayang 🌹♥️
+            </h1>
+
+            <p class="message reveal delay1">
+
+                Hari ini adalah hari spesial,
+                <br>
+                karena seseorang yang spesial
+                <br>
+                sedang bertambah usia. ❤️
+
+            </p>
+
+            <button
+                class="btn reveal delay2"
+                onclick="nextSlide()">
+
+                Lanjut 💌
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         SLIDE 3
+    ====================== -->
+
+    <section class="slide">
+
+        <div class="card">
+
+            <h1>
+                🌻 Doaku buat kamu 🌻
+            </h1>
+
+            <div class="message">
+
+                Semoga semua keinginanmu
+                tercapai,
+
+                <br><br>
+
+                semoga langkahmu selalu
+                dimudahkan,
+
+                <br>
+
+                semoga kamu selalu
+                dikelilingi kebahagiaan. ❤️
+
+            </div>
+
+            <button
+                class="btn"
+                onclick="nextSlide()">
+
+                Ada satu lagi... 👀
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         SLIDE 4
+    ====================== -->
+
+    <section class="slide">
+
+        <div class="card">
+
+            <div style="font-size:70px;">
+                😎❤️
+            </div>
+
+            <h1>
+                Tapi...
+            </h1>
+
+            <div class="message">
+
+                ada satu keinginanmu
+                yang harus ditolak.
+
+                <br><br>
+
+                <div class="highlight">
+
+                    <b>
+                        Keinginan buat
+                        ninggalin aku.
+                        <br><br>
+
+                        Yang itu ditolak semesta. 😎
+                    </b>
+
+                </div>
+
+            </div>
+
+            <button
+                class="btn"
+                onclick="nextSlide()">
+
+                Kenapa? 🤔
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         SLIDE 5
+    ====================== -->
+
+    <section class="slide">
+
+        <div class="final-flower">
+            🌻
+        </div>
+
+        <h1 class="final-title">
+            Karena...
+        </h1>
+
+        <div class="message">
+
+            <br>
+
+            Semesta sudah memutuskan
+            <br>
+
+            kamu harus bahagia,
+            <br>
+
+            dan aku harus tetap
+            <br>
+
+            nemenin kamu. ❤️
+
+            <br><br>
+
+            <b style="font-size:21px;">
+                Happy Birthday, Sayang 🌹♥️
+            </b>
+
+            <br><br>
+
+            <i>
+                — Sulthan 🌻
+            </i>
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="celebrate()">
+
+            ❤️ Aku Sayang Kamu
+
+        </button>
+
+        <div class="copyright">
+            © 2026 • Web dibuat dengan ❤️ oleh Sulthan
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- DOT -->
+
+<div class="dots">
+
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+
+</div>
+
+
+<script>
+
+let currentSlide = 0;
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const dots =
+    document.querySelectorAll(".dot");
+
+
+/* =========================
+   NEXT SLIDE
+========================= */
+
+function nextSlide(){
+
+    if(currentSlide >= slides.length - 1){
+        return;
+    }
+
+    slides[currentSlide]
+        .classList.remove("active");
+
+    slides[currentSlide]
+        .classList.add("previous");
+
+    currentSlide++;
+
+    slides[currentSlide]
+        .classList.add("active");
+
+    dots.forEach(dot=>{
+        dot.classList.remove("active");
+    });
+
+    dots[currentSlide]
+        .classList.add("active");
+
+}
+
+
+/* =========================
+   SWIPE HP
+========================= */
+
+let startX = 0;
+
+document.addEventListener(
+    "touchstart",
+    e=>{
+        startX =
+            e.touches[0].clientX;
+    }
+);
+
+document.addEventListener(
+    "touchend",
+    e=>{
+
+        let endX =
+            e.changedTouches[0].clientX;
+
+        let difference =
+            startX - endX;
+
+        if(difference > 70){
+
+            nextSlide();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   HEART GENERATOR
+========================= */
+
+const hearts = [
+    "❤️",
+    "💗",
+    "💖",
+    "💕",
+    "💓",
+    "💞"
+];
+
+setInterval(()=>{
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random()*hearts.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random()*100+"%";
+
+    heart.style.fontSize =
+        (12 + Math.random()*22)+"px";
+
+    heart.style.animationDuration =
+        (5 + Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+
+},600);
+
+
+/* =========================
+   FLOWER PETALS
+========================= */
+
+setInterval(()=>{
+
+    const petal =
+        document.createElement("div");
+
+    petal.className="petal";
+
+    petal.innerHTML =
+        Math.random() > .5
+        ? "🌸"
+        : "🌻";
+
+    petal.style.left =
+        Math.random()*100+"%";
+
+    petal.style.fontSize =
+        (12 + Math.random()*20)+"px";
+
+    petal.style.animationDuration =
+        (5 + Math.random()*5)+"s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(()=>{
+        petal.remove();
+    },10000);
+
+},900);
+
+
+/* =========================
+   FINAL CELEBRATION
+========================= */
+
+function celebrate(){
+
+    for(let i=0;i<50;i++){
+
+        setTimeout(()=>{
+
+            const heart =
+                document.createElement("div");
+
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random()*hearts.length
+                    )
+                ];
+
+            heart.style.position="fixed";
+
+            heart.style.left =
+                Math.random()*100+"%";
+
+            heart.style.top =
+                Math.random()*100+"%";
+
+            heart.style.fontSize =
+                (15 + Math.random()*30)+"px";
+
+            heart.style.zIndex="100";
+
+            heart.style.pointerEvents="none";
+
+            heart.style.transition="1.5s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(()=>{
+
+                heart.style.transform=
+                    "translateY(-150px) scale(1.8)";
+
+                heart.style.opacity="0";
+
+            },50);
+
+            setTimeout(()=>{
+                heart.remove();
+            },1600);
+
+        },i*30);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
