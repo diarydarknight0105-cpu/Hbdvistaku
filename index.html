@@ -1,323 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Untuk Vista 🌻❤️</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Untuk Vista 🌻</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden}
-body{
-  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
-  color:#fff;
-  background:
-    radial-gradient(circle at 20% 20%,#ffd166 0,transparent 25%),
-    radial-gradient(circle at 80% 15%,#ff75b5 0,transparent 28%),
-    radial-gradient(circle at 50% 100%,#7b2cbf 0,transparent 38%),
-    linear-gradient(135deg,#ff5f8f,#8d3cff);
-}
-.bg{position:fixed;inset:0;overflow:hidden;pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(55px);opacity:.4;animation:orb 9s ease-in-out infinite alternate}
-.o1{width:240px;height:240px;background:#ffd166;left:-70px;top:-50px}
-.o2{width:260px;height:260px;background:#ff4fa3;right:-90px;bottom:-60px;animation-delay:2s}
-@keyframes orb{to{transform:translate(100px,70px) scale(1.25)}}
-
-.slider{position:relative;width:100%;height:100%;z-index:2}
-.slide{
-  position:absolute;inset:0;padding:24px;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;visibility:hidden;transform:translateX(100%);
-  transition:transform .9s cubic-bezier(.77,0,.18,1),opacity .7s,visibility .7s;
-}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#fff;background:linear-gradient(135deg,#ff5f8f,#7b2cbf)}
+.bg{position:fixed;inset:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.4}
+.a{width:280px;height:280px;background:#ffd166;left:-80px;top:-80px}
+.b{width:280px;height:280px;background:#ff4fa3;right:-90px;bottom:-90px}
+.slider{position:relative;height:100%;z-index:2}
+.slide{position:absolute;inset:0;padding:22px;display:flex;align-items:center;justify-content:center;
+opacity:0;visibility:hidden;transform:translateX(100%);transition:all .8s cubic-bezier(.77,0,.18,1)}
 .slide.active{opacity:1;visibility:visible;transform:translateX(0)}
-.slide.previous{opacity:0;visibility:hidden;transform:translateX(-100%)}
-
-.card{
-  width:min(92vw,430px);max-height:88vh;overflow:auto;
-  padding:28px 22px;border-radius:32px;text-align:center;
-  background:rgba(255,255,255,.16);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.4);
-  box-shadow:0 25px 70px rgba(45,0,70,.38),inset 0 0 25px rgba(255,255,255,.1);
-  animation:float 4s ease-in-out infinite;
-}
-@keyframes float{50%{transform:translateY(-7px)}}
-
-.sun{font-size:100px;filter:drop-shadow(0 0 22px #ffd166);animation:bloom 2s ease-in-out infinite alternate}
-@keyframes bloom{to{transform:scale(1.1) rotate(5deg)}}
-h1{font-size:30px;line-height:1.25;text-shadow:0 4px 14px rgba(70,0,60,.5)}
-.sub{margin-top:10px;opacity:.9}
-.msg{margin-top:18px;font-size:17px;line-height:1.8}
-.highlight{
-  display:inline-block;margin-top:12px;padding:13px 15px;border-radius:20px;
-  background:linear-gradient(135deg,rgba(255,214,102,.35),rgba(255,105,180,.3));
-  border:1px solid rgba(255,255,255,.3);
-}
-.btn{
-  margin-top:22px;padding:13px 27px;border:0;border-radius:50px;
-  background:linear-gradient(135deg,#fff3a3,#ffd166,#ff9f1c);
-  color:#713000;font-weight:800;font-size:15px;cursor:pointer;
-  box-shadow:0 8px 25px rgba(255,150,0,.4);animation:pulse 2s infinite;
-}
-@keyframes pulse{50%{transform:scale(1.06)}}
-
-.photo-wrap{
-  width:min(78vw,310px);height:min(48vh,390px);
-  margin:0 auto 18px;border-radius:24px;overflow:hidden;
-  border:3px solid rgba(255,255,255,.65);
-  box-shadow:0 15px 40px rgba(50,0,70,.35);
-  transform:rotate(-2deg);animation:photoIn 1s both;
-}
-.photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-@keyframes photoIn{from{opacity:0;transform:scale(.75) rotate(-8deg)}to{opacity:1;transform:scale(1) rotate(-2deg)}}
-
-.photo2{transform:rotate(2deg)}
-.photo3{transform:rotate(-1deg)}
-
-.final-flower{font-size:90px;animation:bloom 2s infinite alternate}
-.final-title{font-size:36px;animation:glow 2s infinite alternate}
-@keyframes glow{to{text-shadow:0 0 12px #fff,0 0 28px #ffd166,0 0 42px #ff69b4}}
-
-.dots{
-  position:fixed;z-index:10;bottom:18px;left:50%;transform:translateX(-50%);
-  display:flex;gap:7px
-}
-.dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.4);transition:.3s}
-.dot.active{width:24px;background:#fff}
-
-.heart,.petal{
-  position:fixed;pointer-events:none;z-index:1;
-  animation:rise linear forwards;
-}
-@keyframes rise{
-  from{transform:translateY(0) rotate(0) scale(.6);opacity:0}
-  15%{opacity:1}
-  to{transform:translateY(-110vh) rotate(360deg) scale(1.2);opacity:0}
-}
-.petal{top:-30px;bottom:auto;animation:fall linear forwards}
-@keyframes fall{
-  from{transform:translateY(-40px) translateX(0) rotate(0);opacity:0}
-  15%{opacity:1}
-  to{transform:translateY(110vh) translateX(120px) rotate(720deg);opacity:0}
-}
-.copy{position:fixed;bottom:2px;left:0;width:100%;text-align:center;font-size:10px;opacity:.6;z-index:10}
-@media(max-height:700px){.card{padding:20px 18px}.photo-wrap{height:42vh}.msg{font-size:15px}.sun{font-size:78px}}
-
-#musicBox{
-  position:fixed;
-  top:16px;
-  right:16px;
-  z-index:50;
-}
-#musicBtn{
-  border:1px solid rgba(255,255,255,.45);
-  background:rgba(255,255,255,.18);
-  color:#fff;
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  padding:9px 14px;
-  border-radius:30px;
-  font-weight:700;
-  box-shadow:0 8px 25px rgba(50,0,70,.2);
-  cursor:pointer;
-}
-
+.slide.previous{transform:translateX(-100%)}
+.card{width:min(92vw,430px);max-height:86vh;overflow:auto;text-align:center;padding:27px 21px;border-radius:30px;
+background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);
+backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 25px 70px rgba(40,0,60,.35)}
+.sun{font-size:88px;filter:drop-shadow(0 0 18px #ffd166);animation:bloom 1.8s infinite alternate}
+@keyframes bloom{to{transform:scale(1.08) rotate(4deg)}}
+h1{font-size:29px;line-height:1.25;margin:10px 0}
+.msg{font-size:17px;line-height:1.7;margin:16px 0}
+.sub{opacity:.9}
+.btn{border:0;border-radius:50px;padding:13px 24px;font-weight:800;font-size:15px;background:#ffd166;color:#713000;cursor:pointer;box-shadow:0 8px 25px #0002}
+.photo{width:min(78vw,310px);height:min(45vh,380px);margin:0 auto 18px;border-radius:24px;overflow:hidden;border:3px solid #fff9;box-shadow:0 15px 40px #0004}
+.photo img{width:100%;height:100%;object-fit:cover}
+.highlight{display:inline-block;padding:13px;border-radius:18px;background:#ffffff22;border:1px solid #fff5}
+#musicBox{position:fixed;top:14px;right:14px;z-index:20}
+#musicBtn{border:1px solid #fff7;border-radius:30px;padding:10px 14px;background:#4b155d99;color:#fff;font-weight:800;
+backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer}
+#musicBtn.playing{box-shadow:0 0 25px #ffd166;animation:pulse 1.2s infinite alternate}
+@keyframes pulse{to{transform:scale(1.05)}}
+.note{position:fixed;z-index:19;pointer-events:none;animation:up 1.8s ease-out forwards}
+@keyframes up{from{transform:translateY(0);opacity:0}15%{opacity:1}to{transform:translateY(-100px);opacity:0}}
+.heart{position:fixed;z-index:1;bottom:-30px;animation:rise linear forwards;pointer-events:none}
+@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.dots{position:fixed;z-index:10;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:7px}
+.dot{width:8px;height:8px;border-radius:20px;background:#fff6}.dot.active{width:24px;background:#fff}
+.copy{position:fixed;bottom:2px;width:100%;text-align:center;font-size:10px;opacity:.6;z-index:10}
 </style>
 </head>
 <body>
-<div class="bg"><div class="orb o1"></div><div class="orb o2"></div></div>
+<div class="bg"><div class="orb a"></div><div class="orb b"></div></div>
+
+<div id="musicBox"><button id="musicBtn" type="button">🎵 Putar Musik</button></div>
+<audio id="bgMusic" preload="auto" loop playsinline>
+  <source src="./lagu.mp3" type="audio/mpeg">
+</audio>
 
 <div class="slider">
+<section class="slide active"><div class="card">
+  <div class="sun">🌻</div><h1>Vista, ada sesuatu<br>buat kamu... ❤️</h1>
+  <p class="sub">Jangan langsung geer ya 😎</p>
+  <button class="btn next">✨ Buka ✨</button>
+</div></section>
 
-<section class="slide active">
-  <div class="card">
-    <div class="sun">🌻</div>
-    <h1>Vista, ada sesuatu<br>buat kamu... ❤️</h1>
-    <p class="sub">Jangan langsung geer ya 😎</p>
-    <button class="btn" onclick="next()">✨ Buka ✨</button>
-  </div>
-</section>
+<section class="slide"><div class="card">
+  <div class="photo"><img src="foto1.jpg" alt="Vista"></div>
+  <h1>Happy Birthday,<br>Sayang 🌹♥️</h1>
+  <p class="msg">Semoga hari ini menyenangkan<br>dan apa yang kamu harapkan<br>bisa tercapai.</p>
+  <button class="btn next">Lanjut 💌</button>
+</div></section>
 
-<section class="slide">
-  <div class="card">
-    <div class="photo-wrap"><img src="foto1.jpg" alt="Vista"></div>
-    <h1>Happy Birthday,<br>Sayang 🌹♥️</h1>
-    <p class="msg">
-      Semoga hari ini menyenangkan<br>
-      dan apa yang kamu harapkan<br>
-      bisa tercapai.
-    </p>
-    <button class="btn" onclick="next()">Lanjut 💌</button>
-  </div>
-</section>
+<section class="slide"><div class="card">
+  <div class="photo"><img src="foto2.jpg" alt="Vista"></div>
+  <h1>Doaku sederhana 🌻</h1>
+  <p class="msg">Semoga kamu selalu sehat,<br>bahagia,<br>dan tetap jadi diri kamu sendiri. ❤️</p>
+  <button class="btn next">Ada satu lagi... 👀</button>
+</div></section>
 
-<section class="slide">
-  <div class="card">
-    <div class="photo-wrap photo2"><img src="foto2.jpg" alt="Vista"></div>
-    <h1>Doaku sederhana 🌻</h1>
-    <p class="msg">
-      Semoga kamu selalu sehat,<br>
-      bahagia,<br>
-      dan tetap jadi diri kamu sendiri. ❤️
-    </p>
-    <button class="btn" onclick="next()">Ada satu lagi... 👀</button>
-  </div>
-</section>
+<section class="slide"><div class="card">
+  <div class="photo"><img src="foto3.jpg" alt="Vista"></div>
+  <h1>Tapi ada satu... 😎</h1>
+  <p class="msg">Ada satu permintaan<br>yang nggak bisa dikabulkan... 👀<br><br>
+  <span class="highlight"><b>Keinginan buat ninggalin aku.<br>Yang itu ditolak semesta. 😎</b></span></p>
+  <button class="btn next">Lanjut ❤️</button>
+</div></section>
 
-<section class="slide">
-  <div class="card">
-    <div class="photo-wrap photo3"><img src="foto3.jpg" alt="Vista"></div>
-    <h1>Tapi ada satu... 😎</h1>
-    <p class="msg">
-      Ada satu permintaan<br>
-      yang nggak bisa dikabulkan... 👀
-      <br><br>
-      <span class="highlight"><b>
-        Keinginan buat ninggalin aku.<br>
-        Yang itu ditolak semesta. 😎
-      </b></span>
-    </p>
-    <button class="btn" onclick="next()">Lanjut ❤️</button>
-  </div>
-</section>
-
-<section class="slide">
-  <div class="card">
-    <div class="final-flower">🌻</div>
-    <h1 class="final-title">Udah, segitu aja 😌</h1>
-    <p class="msg">
-      Jangan senyum-senyum sendiri. 😂
-      <br><br>
-      <b style="font-size:21px">Happy Birthday, Vista 🌹♥️</b>
-      <br><br>
-      — Sulthan
-    </p>
-    <button class="btn" onclick="celebrate()">❤️ Klik sekali</button>
-  </div>
-</section>
-
+<section class="slide"><div class="card">
+  <div class="sun">🌻</div><h1>Udah, segitu aja 😌</h1>
+  <p class="msg">Jangan senyum-senyum sendiri. 😂<br><br>
+  <b style="font-size:21px">Happy Birthday, Vista 🌹♥️</b><br><br>— Sulthan</p>
+  <button class="btn" id="celebrate">❤️ Klik sekali</button>
+</div></section>
 </div>
 
-<div class="dots">
-  <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
-  <span class="dot"></span><span class="dot"></span>
-</div>
+<div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 <div class="copy">© 2026 • Web dibuat dengan ❤️ oleh Sulthan</div>
 
 <script>
-let i=0;
-const slides=[...document.querySelectorAll('.slide')];
-const dots=[...document.querySelectorAll('.dot')];
+const music=document.getElementById('bgMusic');
+const musicBtn=document.getElementById('musicBtn');
+let musicReady=false;
 
-function next(){
-  if(i===0) startMusic();
-  if(i>=slides.length-1)return;
-  slides[i].classList.remove('active');
-  slides[i].classList.add('previous');
-  i++;
-  slides[i].classList.add('active');
-  dots.forEach(d=>d.classList.remove('active'));
-  dots[i].classList.add('active');
+async function playMusic(){
+  try{
+    music.load();
+    music.volume=.75;
+    await music.play();
+    musicReady=true;
+    musicBtn.textContent='🔊 Musik ON';
+    musicBtn.classList.add('playing');
+    return true;
+  }catch(e){
+    musicBtn.textContent='▶️ Putar Musik';
+    musicBtn.classList.remove('playing');
+    return false;
+  }
 }
+musicBtn.addEventListener('click',async()=> {
+  if(music.paused) await playMusic();
+  else {music.pause();musicBtn.textContent='🔇 Musik OFF';musicBtn.classList.remove('playing')}
+});
+
+const slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('.dot')];
+let i=0;
+async function next(){
+  // Explicit user click is a valid browser gesture for audio.
+  if(i===0 && music.paused) await playMusic();
+  if(i>=slides.length-1)return;
+  slides[i].classList.remove('active');slides[i].classList.add('previous');i++;
+  slides[i].classList.add('active');dots.forEach(x=>x.classList.remove('active'));dots[i].classList.add('active');
+}
+document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',next));
 
 let sx=0;
 document.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
-document.addEventListener('touchend',e=>{
-  if(sx-e.changedTouches[0].clientX>60) next();
-},{passive:true});
+document.addEventListener('touchend',e=>{if(sx-e.changedTouches[0].clientX>60)next()},{passive:true});
 
-const hearts=['❤️','💗','💖','💕','💓','💞'];
-setInterval(()=>{
-  const x=document.createElement('div');
-  x.className='heart';
-  x.textContent=hearts[Math.floor(Math.random()*hearts.length)];
-  x.style.left=Math.random()*100+'%';
-  x.style.bottom='-40px';
-  x.style.fontSize=(12+Math.random()*20)+'px';
-  x.style.animationDuration=(5+Math.random()*5)+'s';
-  document.body.appendChild(x);
-  setTimeout(()=>x.remove(),10000);
-},550);
+function note(){
+  if(music.paused)return;
+  const n=document.createElement('span');n.className='note';n.textContent=['♪','♫','♬','🎵'][Math.floor(Math.random()*4)];
+  n.style.left=(70+Math.random()*22)+'%';n.style.top=(12+Math.random()*15)+'%';document.body.appendChild(n);
+  setTimeout(()=>n.remove(),1800);
+}
+setInterval(note,1300);
 
 setInterval(()=>{
-  const x=document.createElement('div');
-  x.className='petal';
-  x.textContent=Math.random()>.5?'🌸':'🌻';
-  x.style.left=Math.random()*100+'%';
-  x.style.fontSize=(12+Math.random()*18)+'px';
-  x.style.animationDuration=(5+Math.random()*5)+'s';
-  document.body.appendChild(x);
-  setTimeout(()=>x.remove(),10000);
-},850);
+  const h=document.createElement('span');h.className='heart';h.textContent=['❤️','💗','💖','💕'][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+'%';h.style.fontSize=(12+Math.random()*20)+'px';h.style.animationDuration=(5+Math.random()*5)+'s';
+  document.body.appendChild(h);setTimeout(()=>h.remove(),10000);
+},650);
 
-function celebrate(){
-  for(let n=0;n<45;n++){
-    setTimeout(()=>{
-      const x=document.createElement('div');
-      x.className='heart';
-      x.textContent=hearts[Math.floor(Math.random()*hearts.length)];
-      x.style.left=Math.random()*100+'%';
-      x.style.bottom=Math.random()*50+'%';
-      x.style.fontSize=(18+Math.random()*28)+'px';
-      x.style.animationDuration=(2+Math.random()*2)+'s';
-      document.body.appendChild(x);
-      setTimeout(()=>x.remove(),4500);
-    },n*35);
-  }
-}
-
-
-const music = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-let musicStarted = false;
-
-async function startMusic(){
-  try{
-    music.volume = 0.7;
-    await music.play();
-    musicStarted = true;
-    musicBtn.textContent = "🔊 Musik ON";
-    musicBtn.classList.add("playing");
-    createMusicNotes();
-  }catch(err){
-    musicBtn.textContent = "▶️ Putar Musik";
-    musicBtn.classList.remove("playing");
-  }
-}
-
-function toggleMusic(){
-  if(music.paused){
-    startMusic();
-  }else{
-    music.pause();
-    musicBtn.textContent = "🔇 Musik OFF";
-    musicBtn.classList.remove("playing");
-  }
-}
-
-function createMusicNotes(){
-  const notes=["♪","♫","♬","🎵"];
-  const n=document.createElement("div");
-  n.className="music-note";
-  n.textContent=notes[Math.floor(Math.random()*notes.length)];
-  n.style.left=(75+Math.random()*20)+"%";
-  n.style.top=(10+Math.random()*10)+"%";
-  document.body.appendChild(n);
-  setTimeout(()=>n.remove(),2000);
-}
-
-setInterval(()=>{
-  if(!music.paused) createMusicNotes();
-},1400);
+document.getElementById('celebrate').addEventListener('click',()=>{
+  for(let n=0;n<35;n++)setTimeout(()=>{
+    const h=document.createElement('span');h.className='heart';h.textContent='❤️';h.style.left=Math.random()*100+'%';
+    h.style.bottom=(10+Math.random()*40)+'%';h.style.fontSize=(18+Math.random()*25)+'px';h.style.animationDuration='2.5s';
+    document.body.appendChild(h);setTimeout(()=>h.remove(),3000);
+  },n*40);
+});
 </script>
-
-<div id="musicBox">
-  <button id="musicBtn" onclick="toggleMusic()">🎵 Putar Musik</button>
-</div>
-<audio id="bgMusic" preload="auto" loop>
-  <source src="./lagu.mp3" type="audio/mpeg">
-  Browser kamu tidak mendukung audio.
-</audio>
-
 </body>
 </html>
