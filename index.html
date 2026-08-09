@@ -102,6 +102,26 @@ h1{font-size:30px;line-height:1.25;text-shadow:0 4px 14px rgba(70,0,60,.5)}
 }
 .copy{position:fixed;bottom:2px;left:0;width:100%;text-align:center;font-size:10px;opacity:.6;z-index:10}
 @media(max-height:700px){.card{padding:20px 18px}.photo-wrap{height:42vh}.msg{font-size:15px}.sun{font-size:78px}}
+
+#musicBox{
+  position:fixed;
+  top:16px;
+  right:16px;
+  z-index:50;
+}
+#musicBtn{
+  border:1px solid rgba(255,255,255,.45);
+  background:rgba(255,255,255,.18);
+  color:#fff;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  padding:9px 14px;
+  border-radius:30px;
+  font-weight:700;
+  box-shadow:0 8px 25px rgba(50,0,70,.2);
+  cursor:pointer;
+}
+
 </style>
 </head>
 <body>
@@ -188,6 +208,7 @@ const slides=[...document.querySelectorAll('.slide')];
 const dots=[...document.querySelectorAll('.dot')];
 
 function next(){
+  if(i===0) startMusic();
   if(i>=slides.length-1)return;
   slides[i].classList.remove('active');
   slides[i].classList.add('previous');
@@ -242,6 +263,34 @@ function celebrate(){
     },n*35);
   }
 }
+
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+function startMusic(){
+  music.volume = 0.65;
+  music.play().then(()=>{
+    musicBtn.textContent = "🔊 Musik ON";
+  }).catch(()=>{});
+}
+
+function toggleMusic(){
+  if(music.paused){
+    startMusic();
+  }else{
+    music.pause();
+    musicBtn.textContent = "🔇 Musik OFF";
+  }
+}
+
 </script>
+
+<div id="musicBox">
+  <button id="musicBtn" onclick="toggleMusic()">🎵 Musik</button>
+</div>
+<audio id="bgMusic" loop preload="auto">
+  <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
 </body>
 </html>
