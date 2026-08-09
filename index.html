@@ -129,70 +129,72 @@ h1{font-size:30px;line-height:1.25;text-shadow:0 4px 14px rgba(70,0,60,.5)}
 
 <div class="slider">
 
-  <section class="slide active">
-    <div class="card">
-      <div class="sun">🌻</div>
-      <h1>Vista, ada sesuatu<br>buat kamu... ❤️</h1>
-      <p class="sub">Geser atau tekan tombolnya. Jangan kabur 😎</p>
-      <button class="btn" onclick="next()">✨ Buka ✨</button>
-    </div>
-  </section>
+<section class="slide active">
+  <div class="card">
+    <div class="sun">🌻</div>
+    <h1>Vista, ada sesuatu<br>buat kamu... ❤️</h1>
+    <p class="sub">Jangan langsung geer ya 😎</p>
+    <button class="btn" onclick="next()">✨ Buka ✨</button>
+  </div>
+</section>
 
-  <section class="slide">
-    <div class="card">
-      <div class="photo-wrap"><img src="foto1.jpg" alt="Vista"></div>
-      <h1>Happy Birthday,<br>Sayang 🌹♥️</h1>
-      <p class="msg">Hari ini adalah hari spesial karena seseorang yang spesial sedang bertambah usia. ❤️</p>
-      <button class="btn" onclick="next()">Lanjut 💌</button>
-    </div>
-  </section>
+<section class="slide">
+  <div class="card">
+    <div class="photo-wrap"><img src="foto1.jpg" alt="Vista"></div>
+    <h1>Happy Birthday,<br>Sayang 🌹♥️</h1>
+    <p class="msg">
+      Semoga hari ini menyenangkan<br>
+      dan apa yang kamu harapkan<br>
+      bisa tercapai.
+    </p>
+    <button class="btn" onclick="next()">Lanjut 💌</button>
+  </div>
+</section>
 
-  <section class="slide">
-    <div class="card">
-      <div class="photo-wrap photo2"><img src="foto2.jpg" alt="Vista"></div>
-      <h1>Doaku buat kamu 🌻</h1>
-      <p class="msg">
-        Semoga semua keinginanmu tercapai,<br>
-        semoga langkahmu selalu dimudahkan,<br>
-        dan semoga kamu selalu dikelilingi kebahagiaan. ❤️
-      </p>
-      <button class="btn" onclick="next()">Ada satu lagi... 👀</button>
-    </div>
-  </section>
+<section class="slide">
+  <div class="card">
+    <div class="photo-wrap photo2"><img src="foto2.jpg" alt="Vista"></div>
+    <h1>Doaku sederhana 🌻</h1>
+    <p class="msg">
+      Semoga kamu selalu sehat,<br>
+      bahagia,<br>
+      dan tetap jadi diri kamu sendiri. ❤️
+    </p>
+    <button class="btn" onclick="next()">Ada satu lagi... 👀</button>
+  </div>
+</section>
 
-  <section class="slide">
-    <div class="card">
-      <div class="photo-wrap photo3"><img src="foto3.jpg" alt="Vista"></div>
-      <h1>Tapi... 😎</h1>
-      <p class="msg">
-        Semoga semua keinginanmu tercapai,
-        <br><br>
-        <span class="highlight"><b>
-          kecuali satu...<br><br>
-          keinginan buat ninggalin aku.<br>
-          Yang itu ditolak semesta. 😎
-        </b></span>
-      </p>
-      <button class="btn" onclick="next()">Kenapa? 🤔</button>
-    </div>
-  </section>
+<section class="slide">
+  <div class="card">
+    <div class="photo-wrap photo3"><img src="foto3.jpg" alt="Vista"></div>
+    <h1>Tapi ada satu... 😎</h1>
+    <p class="msg">
+      Ada satu permintaan<br>
+      yang nggak bisa dikabulkan... 👀
+      <br><br>
+      <span class="highlight"><b>
+        Keinginan buat ninggalin aku.<br>
+        Yang itu ditolak semesta. 😎
+      </b></span>
+    </p>
+    <button class="btn" onclick="next()">Lanjut ❤️</button>
+  </div>
+</section>
 
-  <section class="slide">
-    <div class="card">
-      <div class="final-flower">🌻</div>
-      <h1 class="final-title">Karena...</h1>
-      <p class="msg">
-        semesta sudah memutuskan<br>
-        kamu harus bahagia,<br>
-        dan aku harus tetap nemenin kamu. ❤️
-        <br><br>
-        <b style="font-size:21px">Happy Birthday, Sayang 🌹♥️</b>
-        <br><br>
-        <i>— Sulthan 🌻</i>
-      </p>
-      <button class="btn" onclick="celebrate()">❤️ Aku Sayang Kamu</button>
-    </div>
-  </section>
+<section class="slide">
+  <div class="card">
+    <div class="final-flower">🌻</div>
+    <h1 class="final-title">Udah, segitu aja 😌</h1>
+    <p class="msg">
+      Jangan senyum-senyum sendiri. 😂
+      <br><br>
+      <b style="font-size:21px">Happy Birthday, Vista 🌹♥️</b>
+      <br><br>
+      — Sulthan
+    </p>
+    <button class="btn" onclick="celebrate()">❤️ Klik sekali</button>
+  </div>
+</section>
 
 </div>
 
@@ -264,14 +266,23 @@ function celebrate(){
   }
 }
 
+
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
+let musicStarted = false;
 
-function startMusic(){
-  music.volume = 0.65;
-  music.play().then(()=>{
+async function startMusic(){
+  try{
+    music.volume = 0.7;
+    await music.play();
+    musicStarted = true;
     musicBtn.textContent = "🔊 Musik ON";
-  }).catch(()=>{});
+    musicBtn.classList.add("playing");
+    createMusicNotes();
+  }catch(err){
+    musicBtn.textContent = "▶️ Putar Musik";
+    musicBtn.classList.remove("playing");
+  }
 }
 
 function toggleMusic(){
@@ -280,16 +291,32 @@ function toggleMusic(){
   }else{
     music.pause();
     musicBtn.textContent = "🔇 Musik OFF";
+    musicBtn.classList.remove("playing");
   }
 }
 
+function createMusicNotes(){
+  const notes=["♪","♫","♬","🎵"];
+  const n=document.createElement("div");
+  n.className="music-note";
+  n.textContent=notes[Math.floor(Math.random()*notes.length)];
+  n.style.left=(75+Math.random()*20)+"%";
+  n.style.top=(10+Math.random()*10)+"%";
+  document.body.appendChild(n);
+  setTimeout(()=>n.remove(),2000);
+}
+
+setInterval(()=>{
+  if(!music.paused) createMusicNotes();
+},1400);
 </script>
 
 <div id="musicBox">
-  <button id="musicBtn" onclick="toggleMusic()">🎵 Musik</button>
+  <button id="musicBtn" onclick="toggleMusic()">🎵 Putar Musik</button>
 </div>
-<audio id="bgMusic" loop preload="auto">
-  <source src="lagu.mp3" type="audio/mpeg">
+<audio id="bgMusic" preload="auto" loop>
+  <source src="./lagu.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
 </audio>
 
 </body>
